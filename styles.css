@@ -1,61 +1,179 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+/* General Body Styles */
+html, body {
+    height: 100%; /* Ensures that the body takes full height */
     margin: 0;
     padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
 }
 
-header {
-    background-color: #D3D3D3;
+body {
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Header and Footer Styles */
+header, footer {
+    background-color: #4CAF50;
     color: white;
     text-align: center;
-    padding: 20px;
-}
-
-h1 {
-    margin: 0;
-}
-
-section {
-    padding: 20px;
-    margin: 20px;
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-}
-
-select, input[type="checkbox"], button {
-    margin: 5px 0 20px 0;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: white;
-}
-
-li img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 10px 0;
+    padding: 15px 0;
+    position: relative;
+    z-index: 1;
 }
 
 footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
+    font-size: 0.8em;
+}
+
+/* Header Styling */
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+/* Survey Section */
+#survey {
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#survey h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+select, input[type="submit"] {
+    margin-top: 10px;
     padding: 10px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+select {
+    font-size: 1em;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Recipe Results Section */
+#recipeResults {
+    background-color: white;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 200px; /* Ensure there's enough height for content */
+}
+
+#recipeResults h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#recipeList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between each recipe */
+}
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.recipe:last-child {
+    border-bottom: none;
+}
+
+.recipe h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.recipe img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.recipe p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.recipe a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.recipe a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styles */
+footer p {
+    font-size: 1em;
+    color: white;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design (for smaller screens) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    #survey, #recipeResults, #help {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .recipe img {
+        max-width: 100%;
+    }
 }
