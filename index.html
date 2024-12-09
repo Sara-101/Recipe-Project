@@ -4,61 +4,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What's for Dinner?</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+
+        header {
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        #survey {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        select, input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        #surveyResults {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #recipeResults {
+            margin-top: 20px;
+        }
+
+        .recipe-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .recipe {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .recipe img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .recipe h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .recipe a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .recipe a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
 <header>
     <h1>What's for Dinner?</h1>
-    <p>Find recipes based on your preferences.</p>
+    <p>Find the best recipes based on your preferences!</p>
 </header>
 
-<section id="survey">
-    <h2>Survey: Tell us about your preferences</h2>
-    <form id="recipeSurvey">
+<!-- Survey Form -->
+<div id="survey">
+    <h2>Survey: Help Us Choose Recipes</h2>
+    <form id="surveyForm">
+        <label for="dietaryRestrictions">Dietary Restrictions:</label>
+        <select id="dietaryRestrictions" name="dietaryRestrictions">
+            <option value="None">None</option>
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Gluten Free">Gluten Free</option>
+        </select>
+
         <label for="spiceLevel">Spice Level:</label>
         <select id="spiceLevel" name="spiceLevel">
-            <option value="mild">Mild</option>
-            <option value="medium">Medium</option>
-            <option value="hot">Hot</option>
-        </select><br><br>
+            <option value="Mild">Mild</option>
+            <option value="Medium">Medium</option>
+            <option value="Spicy">Spicy</option>
+        </select>
 
-        <label for="diet">Dietary Preference:</label>
-        <select id="diet" name="diet">
-            <option value="none">None</option>
-            <option value="vegan">Vegan</option>
-            <option value="vegetarian">Vegetarian</option>
-            <option value="gluten-free">Gluten-Free</option>
-        </select><br><br>
+        <label for="allergies">Allergies:</label>
+        <select id="allergies" name="allergies">
+            <option value="None">None</option>
+            <option value="Peanuts">Peanuts</option>
+            <option value="Dairy">Dairy</option>
+            <option value="Shellfish">Shellfish</option>
+        </select>
 
-        <label for="allergies">Select Allergies:</label>
-        <select id="allergies" name="allergies" multiple>
-            <option value="nuts">Nuts</option>
-            <option value="dairy">Dairy</option>
-            <option value="gluten">Gluten</option>
-            <option value="soy">Soy</option>
-            <option value="shellfish">Shellfish</option>
-            <option value="eggs">Eggs</option>
-        </select><br><br>
+        <label for="mealType">Meal Type:</label>
+        <select id="mealType" name="mealType">
+            <option value="Any">Any</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+            <option value="Breakfast">Breakfast</option>
+        </select>
 
-        <input type="submit" value="Get Recipes">
+        <input type="submit" value="Submit Survey">
     </form>
-</section>
-
-<section id="recipeResults">
-    <h2>Recommended Recipes</h2>
-    <div id="recipeList"></div>
-</section>
+</div>
 
 
+<div id="surveyResults"></div>
 
 
-
-    
-
-<footer>
-    <p>Created by Sara Hussain | <a href="https://github.com/yourusername" target="_blank">GitHub Repository</a></p>
-</footer>
+<div id="recipeResults"></div>
 
 <script src="script.js"></script>
 
