@@ -5,6 +5,9 @@ What's for Dinner?
 Overview
 "What's for Dinner?" is a personalized recipe recommendation website that curates recipes tailored to individual tastes, dietary needs, and preferences. By completing a brief survey, users can specify their dietary restrictions, spice tolerance, allergies, and meal preferences. The website then generates a list of recipes that match their profile.
 
+
+Following the Project Proposal this website...
+
 This project utilizes HTML, CSS, and JavaScript.
 
 Core Features
