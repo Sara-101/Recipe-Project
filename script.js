@@ -1,17 +1,23 @@
-document.getElementById('surveyForm').addEventListener('submit', function(event) {
-    event.preventDefault();  // Prevent form submission
+// Ensure that the DOM is fully loaded before attaching event listeners
+document.addEventListener("DOMContentLoaded", function() {
+    const surveyForm = document.getElementById('surveyForm');
+    
+    // Add event listener to the form
+    surveyForm.addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent the form from submitting and refreshing the page
+        
+        // Get the values from the form
+        const dietaryRestrictions = document.getElementById('dietaryRestrictions').value;
+        const spiceTolerance = document.getElementById('spiceTolerance').value;
+        const allergies = Array.from(document.querySelectorAll('input[name="allergies"]:checked')).map(el => el.value);
 
-    // Get form data
-    const dietaryRestrictions = document.getElementById('dietaryRestrictions').value;
-    const spiceTolerance = document.getElementById('spiceTolerance').value;
-    const allergies = Array.from(document.querySelectorAll('input[name="allergies"]:checked')).map(el => el.value);
-
-    // Send data to the recommendation function
-    generateRecipeRecommendations(dietaryRestrictions, spiceTolerance, allergies);
+        // Call the function to generate recipe recommendations
+        generateRecipeRecommendations(dietaryRestrictions, spiceTolerance, allergies);
+    });
 });
 
 function generateRecipeRecommendations(dietaryRestrictions, spiceTolerance, allergies) {
-    // Example predefined recipes (in a real app, this might come from a server or API)
+    // Example predefined recipes (you can replace this with an API or database in the future)
     const recipes = [
         {
             name: "Spaghetti Aglio e Olio",
@@ -39,7 +45,7 @@ function generateRecipeRecommendations(dietaryRestrictions, spiceTolerance, alle
         }
     ];
 
-    // Filter recipes based on survey answers
+    // Filter recipes based on the survey answers
     const filteredRecipes = recipes.filter(recipe => {
         const matchesDietary = dietaryRestrictions === "none" || recipe.dietary === dietaryRestrictions;
         const matchesSpice = recipe.spice === spiceTolerance;
@@ -62,15 +68,11 @@ function generateRecipeRecommendations(dietaryRestrictions, spiceTolerance, alle
                 <img src="${recipe.image}" alt="${recipe.name}">
                 <p><strong>Ingredients:</strong> ${recipe.ingredients.join(', ')}</p>
                 <p><strong>Instructions:</strong> ${recipe.instructions}</p>
-                <button onclick="viewRecipeDetails(${JSON.stringify(recipe)})">View Details</button>
             `;
             recipeList.appendChild(li);
         });
     }
 
+    // Show the recipe recommendations section
     document.getElementById('recipeRecommendations').style.display = 'block';
-}
-
-function viewRecipeDetails(recipe) {
-    alert(`Recipe: ${recipe.name}\n\nIngredients: ${recipe.ingredients.join(', ')}\n\nInstructions: ${recipe.instructions}`);
 }
