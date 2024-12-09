@@ -53,6 +53,7 @@ function getRecommendedRecipes(dietaryRestrictions, spiceLevel, allergies, mealT
         
         { name: "Cajun Shrimp Pasta", 
          url: "https://www.thekitchn.com/cajun-shrimp-pasta-recipe-23449288", 
+         image: "https://media.istockphoto.com/id/1914981426/photo/shrimp-cajun-pasta.webp?a=1&b=1&s=612x612&w=0&k=20&c=LmDf8dNEeLNThajOmz7SJCXP_9bKaMp_QQloQOCP8WU=", 
          dietary: "None", spice: "Medium", allergens: "None", type: "Dinner" },
  // Add more recipes
 
