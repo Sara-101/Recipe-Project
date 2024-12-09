@@ -3,72 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What's for Dinner? Survey</title>
+    <title>What's for Dinner?</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<h1>What's for Dinner? Survey</h1>
+<header>
+    <h1>What's for Dinner?</h1>
+    <p>Find recipes based on your preferences.</p>
+</header>
 
-<form id="recipeSurvey">
+<section id="survey">
+    <h2>Survey: Tell us about your preferences</h2>
+    <form id="recipeSurvey">
+        <label for="spiceLevel">Spice Level:</label>
+        <select id="spiceLevel" name="spiceLevel">
+            <option value="mild">Mild</option>
+            <option value="medium">Medium</option>
+            <option value="hot">Hot</option>
+        </select><br><br>
 
-    <label for="spiceLevel">Spice Level:</label>
-    <select id="spiceLevel" name="spiceLevel">
-        <option value="mild">Mild</option>
-        <option value="medium">Medium</option>
-        <option value="hot">Hot</option>
-    </select>
-    <br><br>
+        <label for="diet">Dietary Preference:</label>
+        <select id="diet" name="diet">
+            <option value="none">None</option>
+            <option value="vegan">Vegan</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="gluten-free">Gluten-Free</option>
+        </select><br><br>
 
-    <!-- Dietary Preference -->
-    <label for="diet">Dietary Preference:</label>
-    <select id="diet" name="diet">
-        <option value="none">None</option>
-        <option value="vegan">Vegan</option>
-        <option value="vegetarian">Vegetarian</option>
-        <option value="gluten-free">Gluten-Free</option>
-    </select>
-    <br><br>
+        <label for="allergies">Select Allergies:</label>
+        <select id="allergies" name="allergies" multiple>
+            <option value="nuts">Nuts</option>
+            <option value="dairy">Dairy</option>
+            <option value="gluten">Gluten</option>
+            <option value="soy">Soy</option>
+            <option value="shellfish">Shellfish</option>
+            <option value="eggs">Eggs</option>
+        </select><br><br>
 
-    <!-- Allergies -->
-    <label for="allergies">Select Allergies:</label>
-    <select id="allergies" name="allergies" multiple>
-        <option value="nuts">Nuts</option>
-        <option value="dairy">Dairy</option>
-        <option value="gluten">Gluten</option>
-        <option value="soy">Soy</option>
-        <option value="shellfish">Shellfish</option>
-        <option value="eggs">Eggs</option>
-    </select>
-    <br><br>
+        <input type="submit" value="Get Recipes">
+    </form>
+</section>
 
-    <input type="submit" value="Submit">
-</form>
+<section id="recipeResults">
+    <h2>Recommended Recipes</h2>
+    <div id="recipeList"></div>
+</section>
 
-<div id="result"></div>
+<footer>
+    <p>Created by Sara Hussain | <a href="https://github.com/yourusername" target="_blank">GitHub Repository</a></p>
+</footer>
 
-<script>
-
-document.getElementById("recipeSurvey").addEventListener("submit", function(event) {
-    event.preventDefault(); 
-
-
-    const spiceLevel = document.getElementById("spiceLevel").value;
-    const diet = document.getElementById("diet").value;
-    const allergies = Array.from(document.getElementById("allergies").selectedOptions)
-                            .map(option => option.value);  
-
-   
-    const resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = `
-        You selected: <br>
-        Spice Level: ${spiceLevel} <br>
-        Dietary Preference: ${diet} <br>
-        Allergies: ${allergies.length > 0 ? allergies.join(", ") : "None"} <br>
-    `;
-
-
-});
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
