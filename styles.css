@@ -151,6 +151,17 @@ input[type="submit"]:hover {
 .recipe a:hover {
     text-decoration: underline;
 }
+#helpSection {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#helpSection ol {
+  margin: 10px 0;
+  padding-left: 20px;
+}
 
 footer p {
     font-size: 1em;
