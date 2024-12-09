@@ -26,7 +26,10 @@ document.getElementById("surveyForm").addEventListener("submit", function(event)
 function getRecommendedRecipes(dietaryRestrictions, spiceLevel, allergies, mealType) {
     
     const allRecipes = [
-        { name: "Vegetarian Chili", image: "https://www.simplyrecipes.com/thmb/z7gUkI9iw9V0erP_IGn0hjg9jCw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__12__Vegetarian-Chili-LEAD-4-29aaa5363fbd495090de1c9dbfefd4e9.jpg", url: "https://www.simplyrecipes.com/recipes/easy_vegetarian_chili_with_mushrooms/", dietary: "Vegetarian", spice: "Medium", allergens: "None", type: "Dinner" },
+        { name: "Vegetarian Chili", 
+         image: "https://www.simplyrecipes.com/thmb/z7gUkI9iw9V0erP_IGn0hjg9jCw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__12__Vegetarian-Chili-LEAD-4-29aaa5363fbd495090de1c9dbfefd4e9.jpg",
+         url: "https://www.simplyrecipes.com/recipes/easy_vegetarian_chili_with_mushrooms/", 
+         dietary: "Vegetarian", spice: "Medium", allergens: "None", type: "Dinner" },
         { name: "Butter Chicken ", 
          url: "https://www.allrecipes.com/recipe/141169/easy-indian-butter-chicken/", 
          dietary: "None", spice: "Spicy", allergens: "Dairy", type: "Dinner" },
