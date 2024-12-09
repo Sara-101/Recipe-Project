@@ -4,19 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What's for Dinner?</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <h1> What's for Dinner?</h1>
-</header>
+    <h1>Welcome to What's for Dinner?</h1>
+    <form id="survey-form">
+        <h2>Survey: Tell us about your preferences!</h2>
+        
+        <label for="diet">Choose your diet:</label>
+        <select id="diet" name="diet">
+            <option value="vegetarian">Vegetarian</option>
+            <option value="non-vegetarian">Non-Vegetarian</option>
+            <option value="gluten-free">Gluten-Free</option>
+        </select>
 
-<div class="container">
-    <section id="product-name">
-        <p><strong>What's for Dinner? </strong> — A personalized recipe recommendation website that curates recipes tailored to your individual tastes, dietary needs, and personal preferences.</p>
-    </section>
+        <label for="spice-level">How much spice do you like?</label>
+        <input type="range" id="spice-level" name="spice-level" min="1" max="5" value="3">
 
-    
+        <label for="meal-type">What type of meal are you looking for?</label>
+        <input type="text" id="meal-type" name="meal-type">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="recipe-results" style="display:none;">
+        <h2>Recipe Suggestions:</h2>
+        <ul id="recipe-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
-            
+
