@@ -1,14 +1,14 @@
-// Add an event listener to the form to handle the survey submission
-document.getElementById("surveyForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission (refresh)
 
-    // Get the values from the survey form
+document.getElementById("surveyForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+
     const dietaryRestrictions = document.getElementById("dietaryRestrictions").value;
     const spiceLevel = document.getElementById("spiceLevel").value;
     const allergies = document.getElementById("allergies").value;
     const mealType = document.getElementById("mealType").value;
 
-    // Display survey results
+
     document.getElementById("surveyResults").innerHTML = `
         <h3>Your Survey Results:</h3>
         <p><strong>Dietary Restrictions:</strong> ${dietaryRestrictions}</p>
@@ -17,16 +17,15 @@ document.getElementById("surveyForm").addEventListener("submit", function(event)
         <p><strong>Meal Type:</strong> ${mealType}</p>
     `;
 
-    // Generate recipe recommendations based on the survey results
     const recipes = getRecommendedRecipes(dietaryRestrictions, spiceLevel, allergies, mealType);
 
-    // Display the recommended recipes
+    
     displayRecommendedRecipes(recipes);
 });
 
-// Function 
+
 function getRecommendedRecipes(dietaryRestrictions, spiceLevel, allergies, mealType) {
-    // Example recipes 
+ 
     const allRecipes = [
         { name: "Vegetarian Chili", image: "https://www.simplyrecipes.com/thmb/z7gUkI9iw9V0erP_IGn0hjg9jCw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__12__Vegetarian-Chili-LEAD-4-29aaa5363fbd495090de1c9dbfefd4e9.jpg", url: "https://www.simplyrecipes.com/recipes/easy_vegetarian_chili_with_mushrooms/", dietary: "Vegetarian", spice: "Medium", allergens: "None", type: "Dinner" },
         { name: "Butter Chicken ", image: "https://www.allrecipes.com/thmb/Ij_7LS6kyn2cVyJhhL1j0P2csLY=/0x512/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/AR-141169-Easy-Indian-Butter-Chicken-DDMFS-4x3-beauty-588ff54d1e0f4a0788906e851e27d540.jpg", url: "https://www.allrecipes.com/recipe/141169/easy-indian-butter-chicken/", dietary: "None", spice: "Spicy", allergens: "Dairy", type: "Dinner" },
@@ -54,7 +53,7 @@ function getRecommendedRecipes(dietaryRestrictions, spiceLevel, allergies, mealT
 // Function to display recommended recipes
 function displayRecommendedRecipes(recipes) {
     const recipeListContainer = document.getElementById("recipeResults");
-    recipeListContainer.innerHTML = ''; // Clear previous results
+    recipeListContainer.innerHTML = ''; 
 
     if (recipes.length === 0) {
         recipeListContainer.innerHTML = '<p>No recipes found based on your survey results.</p>';
