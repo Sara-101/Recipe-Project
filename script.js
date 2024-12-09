@@ -1,4 +1,4 @@
-s
+
 document.addEventListener("DOMContentLoaded", function() {
     const surveyForm = document.getElementById('surveyForm');
     
@@ -6,10 +6,12 @@ document.addEventListener("DOMContentLoaded", function() {
     surveyForm.addEventListener('submit', function(event) {
         event.preventDefault();  
 
-      
-        const dietaryRestrictions = document.getElementById('dietaryRestrictions').value;
-        const spiceTolerance = document.getElementById('spiceTolerance').value;
-        const allergies = Array.from(document.querySelectorAll('input[name="allergies"]:checked')).map(el => el.value);
+      document.getElementById("recipeSurvey").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+
+    const spiceLevel = document.getElementById("spiceLevel").value;
+    const diet = document.getElementById("diet").value;
+    const allergies = Array.from(document.getElementById("allergies").selectedOptions).map(option => option.value);
 
         generateRecipeRecommendations(dietaryRestrictions, spiceTolerance, allergies);
     });
@@ -154,32 +156,28 @@ function generateRecipeRecommendations(dietaryRestrictions, spiceTolerance, alle
         instructions: "For full instructions, visit: <a href='https://www.foodnetwork
 
 
-    const filteredRecipes = recipes.filter(recipe => {
-        const matchesDietary = dietaryRestrictions === "none" || recipe.dietary === dietaryRestrictions;
-        const matchesSpice = recipe.spice === spiceTolerance;
-        const matchesAllergies = !allergies.some(allergy => recipe.ingredients.includes(allergy));
+   const filteredRecipes = recipes.filter(recipe => {
+        const spiceMatch = recipe.spice === spiceLevel || spiceLevel === "none";
+        const dietMatch = recipe.diet === diet || diet === "none";
+        const allergiesMatch = allergies.every(allergy => !recipe.ingredients.includes(allergy));
 
-        return matchesDietary && matchesSpice && matchesAllergies;
+        return spiceMatch && dietMatch && allergiesMatch;
     });
 
-    const recipeList = document.getElementById('recipeList');
-    recipeList.innerHTML = '';  // Clear any previous results
+      const resultDiv = document.getElementById("recipeList");
+    resultDiv.innerHTML = filteredRecipes.length > 0 ? filteredRecipes.map(recipe => `
+        <div class="recipe">
+            <h3>${recipe.name}</h3>
+            <img src="${recipe.image}" alt="${recipe.name}">
+            <p><strong>Ingredients:</strong> ${recipe.ingredients.join(', ')}</p>
+            <p>${recipe.instructions}</p>
+        </div>
+    `).join('') : "<p>No recipes found based on your preferences.</p>";
+});
 
-    if (filteredRecipes.length === 0) {
-        recipeList.innerHTML = '<li>No recipes match your preferences.</li>';
-    } else {
-        filteredRecipes.forEach(recipe => {
-            const li = document.createElement('li');
-            li.innerHTML = `
-                <strong>${recipe.name}</strong>
-                <img src="${recipe.image}" alt="${recipe.name}">
-                <p><strong>Ingredients:</strong> ${recipe.ingredients.join(', ')}</p>
-                <p><strong>Instructions:</strong> ${recipe.instructions}</p>
-            `;
-            recipeList.appendChild(li);
-        });
-    }
 
-    // Show the recipe recommendations section
+
+}
+
     document.getElementById('recipeRecommendations').style.display = 'block';
 }
