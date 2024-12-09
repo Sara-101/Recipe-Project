@@ -7,32 +7,47 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to What's for Dinner?</h1>
-    <form id="survey-form">
-        <h2>Survey: Tell us about your preferences!</h2>
-        
-        <label for="diet">Choose your diet:</label>
-        <select id="diet" name="diet">
-            <option value="vegetarian">Vegetarian</option>
-            <option value="non-vegetarian">Non-Vegetarian</option>
-            <option value="gluten-free">Gluten-Free</option>
-        </select>
+    <header>
+        <h1>What's for Dinner?</h1>
+        <p>Get personalized recipe recommendations based on your preferences!</p>
+    </header>
 
-        <label for="spice-level">How much spice do you like?</label>
-        <input type="range" id="spice-level" name="spice-level" min="1" max="5" value="3">
+    <section id="survey">
+        <h2>Customize Your Meal</h2>
+        <form id="surveyForm">
+            <label for="dietaryRestrictions">Dietary Restrictions:</label>
+            <select id="dietaryRestrictions" name="dietaryRestrictions">
+                <option value="none">None</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="gluten-free">Gluten-Free</option>
+            </select>
 
-        <label for="meal-type">What type of meal are you looking for?</label>
-        <input type="text" id="meal-type" name="meal-type">
+            <label for="spiceTolerance">Spice Tolerance:</label>
+            <select id="spiceTolerance" name="spiceTolerance">
+                <option value="mild">Mild</option>
+                <option value="medium">Medium</option>
+                <option value="hot">Hot</option>
+            </select>
 
-        <button type="submit">Submit</button>
-    </form>
+            <label for="allergies">Allergies (select all that apply):</label>
+            <input type="checkbox" id="peanuts" name="allergies" value="nuts"> nuts
+            <input type="checkbox" id="dairy" name="allergies" value="dairy"> Dairy
+            <input type="checkbox" id="gluten" name="allergies" value="gluten"> Gluten
 
-    <div id="recipe-results" style="display:none;">
-        <h2>Recipe Suggestions:</h2>
-        <ul id="recipe-list"></ul>
-    </div>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="recipeRecommendations" style="display: none;">
+        <h2>Recipe Recommendations</h2>
+        <ul id="recipeList"></ul>
+    </section>
+
+    <footer>
+        <p>Made by Sara Hussain</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
