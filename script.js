@@ -49,11 +49,11 @@ function getRecommendedRecipes(dietaryRestrictions, spiceLevel, allergies, mealT
         { name: "Gluten-Free Pancakes",
          url: "https://www.mamaknowsglutenfree.com/easy-gluten-free-pancakes/", 
          image: "https://plus.unsplash.com/premium_photo-1672846027109-e2c91500afef?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGFuY2FrZXN8ZW58MHx8MHx8fDA%3D",
-         dietary: "Vegan", spice: "Spicy", allergens: "None", type: "Dinner" },
+         dietary: "Gluten Free", spice: "Mild", allergens: "None", type: "Breakfast" },
         
         { name: "Cajun Shrimp Pasta", 
          url: "https://www.thekitchn.com/cajun-shrimp-pasta-recipe-23449288", 
-         dietary: "None", spice: "Medium", allergens: "Shellfish", type: "Dinner" },
+         dietary: "None", spice: "Medium", allergens: "None", type: "Dinner" },
  // Add more recipes
 
     ];
