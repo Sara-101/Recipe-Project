@@ -3,56 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What's for Dinner?</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Recipe Survey</title>
 </head>
 <body>
-    <header>
-        <h1>What's for Dinner?</h1>
-        <p>Get personalized recipe recommendations based on your preferences!</p>
-    </header>
 
-    <section id="survey">
-        <h2>Customize Your Meal</h2>
-        <form id="surveyForm">
-            <label for="dietaryRestrictions">Dietary Restrictions:</label>
-            <select id="dietaryRestrictions" name="dietaryRestrictions">
-                <option value="none">None</option>
-                <option value="vegetarian">Vegetarian</option>
-                <option value="vegan">Vegan</option>
-                <option value="gluten-free">Gluten-Free</option>
-            </select>
+<h1>What's for Dinner? Survey</h1>
 
-            <label for="spiceTolerance">Spice Tolerance:</label>
-            <select id="spiceTolerance" name="spiceTolerance">
-                <option value="mild">Mild</option>
-                <option value="medium">Medium</option>
-                <option value="hot">Hot</option>
-            </select>
+<form id="recipeSurvey">
+    <label for="spiceLevel">Spice Level:</label>
+    <select id="spiceLevel" name="spiceLevel">
+        <option value="mild">Mild</option>
+        <option value="medium">Medium</option>
+        <option value="hot">Hot</option>
+    </select>
+    <br><br>
 
-            <label for="allergies">Allergies (select all that apply):</label>
-            <input type="checkbox" id="peanuts" name="allergies" value="nuts"> Nuts
-            <input type="checkbox" id="dairy" name="allergies" value="dairy"> Dairy
-            <input type="checkbox" id="gluten" name="allergies" value="gluten"> Gluten
+    <label for="diet">Dietary Preference:</label>
+    <select id="diet" name="diet">
+        <option value="none">None</option>
+        <option value="vegan">Vegan</option>
+        <option value="vegetarian">Vegetarian</option>
+        <option value="gluten-free">Gluten-Free</option>
+    </select>
+    <br><br>
 
-            <button type="submit">Submit</button>
-        </form>
-    </section>
+    <input type="submit" value="Submit">
+</form>
 
-    <section id="recipeRecommendations" style="display: none;">
-        <h2>Recipe Recommendations</h2>
-        <ul id="recipeList"></ul>
-    </section>
+<div id="result"></div>
+
+<script>
+
+document.getElementById("recipeSurvey").addEventListener("submit", function(event) {
+    event.preventDefault();  
 
 
+    const spiceLevel = document.getElementById("spiceLevel").value;
+    const diet = document.getElementById("diet").value;
 
 
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = `You selected: Spice Level - ${spiceLevel}, Diet - ${diet}`;
 
-    
-    <footer>
-        <p>Made by Sara Hussain</p>
-    </footer>
+ 
+});
+</script>
 
-    <script src="script.js"></script>
 </body>
 </html>
