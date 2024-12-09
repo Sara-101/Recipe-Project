@@ -1,13 +1,12 @@
 document.getElementById("surveyForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission (refresh)
+    event.preventDefault(); 
 
-    // Get the values from the survey form
+    
     const dietaryRestrictions = document.getElementById("dietaryRestrictions").value;
     const spiceLevel = document.getElementById("spiceLevel").value;
     const allergies = document.getElementById("allergies").value;
     const mealType = document.getElementById("mealType").value;
 
-    // Display survey results
     document.getElementById("surveyResults").innerHTML = `
         <h3>Your Survey Results:</h3>
         <p><strong>Dietary Restrictions:</strong> ${dietaryRestrictions}</p>
@@ -16,29 +15,38 @@ document.getElementById("surveyForm").addEventListener("submit", function(event)
         <p><strong>Meal Type:</strong> ${mealType}</p>
     `;
 
-    // Generate recipe recommendations based on the survey results
+    
     const recipes = getRecommendedRecipes(dietaryRestrictions, spiceLevel, allergies, mealType);
 
-    // Display the recommended recipes
+    
     displayRecommendedRecipes(recipes);
 });
 
-// Function to get recommended recipes based on survey results
+
 function getRecommendedRecipes(dietaryRestrictions, spiceLevel, allergies, mealType) {
-    // Example recipes (replace this with actual recipes and logic for filtering)
+    
     const allRecipes = [
-        { name: "Vegetarian Chili", image: "https://via.placeholder.com/300x200?text=Chili", url: "https://example.com/chili", dietary: "Vegetarian", spice: "Medium", allergens: "None", type: "Dinner" },
-        { name: "Chicken Curry", image: "https://via.placeholder.com/300x200?text=Chicken+Curry", url: "https://example.com/chicken-curry", dietary: "None", spice: "Spicy", allergens: "Dairy", type: "Dinner" },
-        { name: "Vegan Salad", image: "https://via.placeholder.com/300x200?text=Vegan+Salad", url: "https://example.com/vegan-salad", dietary: "Vegan", spice: "Mild", allergens: "None", type: "Lunch" },
-        { name: "Beef Tacos", image: "https://via.placeholder.com/300x200?text=Beef+Tacos", url: "https://example.com/beef-tacos", dietary: "None", spice: "Medium", allergens: "None", type: "Dinner" },
-        { name: "Grilled Salmon", image: "https://via.placeholder.com/300x200?text=Grilled+Salmon", url: "https://example.com/grilled-salmon", dietary: "None", spice: "Mild", allergens: "None", type: "Lunch" },
-        { name: "Gluten-Free Pancakes", image: " https://images.unsplash.com/photo-1506084868230-bb9d95c24759?q=80&w=2187&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", url: "https://www.mamaknowsglutenfree.com/easy-gluten-free-pancakes/", dietary: "Gluten Free", spice: "Mild", allergens: "None", type: "Breakfast" },
-        { name: "Spicy Vegan Stir-fry", image: "https://via.placeholder.com/300x200?text=Spicy+Vegan+Stir-fry", url: "https://example.com/spicy-vegan-stir-fry", dietary: "Vegan", spice: "Spicy", allergens: "None", type: "Dinner" },
-        { name: "Shrimp Pasta", image: "https://via.placeholder.com/300x200?text=Shrimp+Pasta", url: "https://example.com/shrimp-pasta", dietary: "None", spice: "Medium", allergens: "Shellfish", type: "Dinner" },
-        // Add more recipes as needed
+        { name: "Vegetarian Chili", image: "https://www.simplyrecipes.com/thmb/z7gUkI9iw9V0erP_IGn0hjg9jCw=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2018__12__Vegetarian-Chili-LEAD-4-29aaa5363fbd495090de1c9dbfefd4e9.jpg", url: "https://www.simplyrecipes.com/recipes/easy_vegetarian_chili_with_mushrooms/", dietary: "Vegetarian", spice: "Medium", allergens: "None", type: "Dinner" },
+        { name: "Butter Chicken ", 
+         url: "https://www.allrecipes.com/recipe/141169/easy-indian-butter-chicken/", 
+         dietary: "None", spice: "Spicy", allergens: "Dairy", type: "Dinner" },
+        { name: "Green Goddess Salad", 
+         url: "https://feelgoodfoodie.net/recipe/green-goddess-salad/", 
+         dietary: "Vegan", spice: "Mild", allergens: "None", type: "Lunch" },
+        { name: "Birria Tacos",
+         url: "https://www.dinneratthezoo.com/grilled-salmon/", 
+         dietary: "None", spice: "Mild", allergens: "None", type: "Lunch" },
+        { name: "Gluten-Free Pancakes",
+         url: "https://www.gimmesomeoven.com/sizzlin-spicy-szechuan-stir-fry/", 
+         dietary: "Vegan", spice: "Spicy", allergens: "None", type: "Dinner" },
+        { name: "Cajun Shrimp Pasta", 
+         url: "https://www.thekitchn.com/cajun-shrimp-pasta-recipe-23449288", 
+         dietary: "None", spice: "Medium", allergens: "Shellfish", type: "Dinner" },
+ // Add more recipes
+
     ];
 
-    // Filter recipes based on the user's preferences
+    
     const filteredRecipes = allRecipes.filter(recipe => {
         return (dietaryRestrictions === "None" || recipe.dietary === dietaryRestrictions) &&
                (spiceLevel === "Any" || recipe.spice === spiceLevel) &&
@@ -49,10 +57,10 @@ function getRecommendedRecipes(dietaryRestrictions, spiceLevel, allergies, mealT
     return filteredRecipes;
 }
 
-// Function to display recommended recipes
+
 function displayRecommendedRecipes(recipes) {
     const recipeListContainer = document.getElementById("recipeResults");
-    recipeListContainer.innerHTML = ''; // Clear previous results
+    recipeListContainer.innerHTML = ''; 
 
     if (recipes.length === 0) {
         recipeListContainer.innerHTML = '<p>No recipes found based on your survey results.</p>';
